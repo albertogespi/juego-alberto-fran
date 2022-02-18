@@ -14,6 +14,7 @@ public class MovimientoJugador : MonoBehaviour
     private float Horizontal;
     private float LastShoot;
     private bool Grounded;
+    private int Health = 5;
 
     void Start()
     {
@@ -74,4 +75,9 @@ public class MovimientoJugador : MonoBehaviour
         Rigidbody2D.velocity = new Vector2(Horizontal, Rigidbody2D.velocity.y);
     }
     
+    public void Hit()
+    {
+        Health = Health -1;
+        if (Health == 0) Destroy (gameObject);
+    }
 }
