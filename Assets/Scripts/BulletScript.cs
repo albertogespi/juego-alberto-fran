@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public AudioClip Sound;
     public float Speed;
 
     private Rigidbody2D Rigidbody2D;
@@ -12,6 +13,7 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(Sound);
     }
 
     
@@ -35,7 +37,7 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         MovimientoJugador john = collision.GetComponent<MovimientoJugador>();
         GruntScript grunt = collision.GetComponent<GruntScript>();
