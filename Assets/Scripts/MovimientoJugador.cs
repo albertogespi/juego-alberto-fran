@@ -11,7 +11,7 @@ public class MovimientoJugador : MonoBehaviour
 
     private Animator Animator;
     private Rigidbody2D Rigidbody2D;
-    private float Horizontal;
+    private float Horizontal;    
     private float LastShoot;
     private bool Grounded;
     private int Health = 5;
@@ -23,15 +23,17 @@ public class MovimientoJugador : MonoBehaviour
     }
 
    
-    void Update()
-    {
-       Horizontal = Input.GetAxisRaw("Horizontal");
+    void Update()    {        
+
+        if (gameObject.transform.position.y < -2.0f) Destroy(gameObject);
+
+        Horizontal = Input.GetAxisRaw("Horizontal");       
        
        if (Horizontal < 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
        else if(Horizontal > 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
-       Animator.SetBool("running", Horizontal != 0.0f);
-       Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
+        Animator.SetBool("running", Horizontal != 0.0f);
+        Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
 
         if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
         {
@@ -79,6 +81,6 @@ public class MovimientoJugador : MonoBehaviour
     public void Hit()
     {
         Health = Health -1;
-        if (Health == 0) Destroy (gameObject);
+        if (Health == 0) Destroy(gameObject);
     }
 }
