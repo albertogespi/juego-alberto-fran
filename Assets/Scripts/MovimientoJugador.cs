@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimientoJugador : MonoBehaviour
 { 
@@ -14,7 +15,7 @@ public class MovimientoJugador : MonoBehaviour
     private float Horizontal;    
     private float LastShoot;
     private bool Grounded;
-    private int Health = 5;
+    private int Health = 10000;
 
     void Start()
     {
@@ -25,7 +26,11 @@ public class MovimientoJugador : MonoBehaviour
    
     void Update()    {        
 
-        if (gameObject.transform.position.y < -2.0f) Destroy(gameObject);
+        if (gameObject.transform.position.y < -2.0f) 
+        {
+            Destroy(gameObject);
+
+        }
 
         Horizontal = Input.GetAxisRaw("Horizontal");       
        

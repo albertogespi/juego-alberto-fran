@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraScript : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CameraScript : MonoBehaviour
             Vector3 position = transform.position;
             position.x = John.transform.position.x;
             transform.position = position;
+        }else {
+            SceneManager.LoadScene(4);
         }
         
     }
