@@ -8,7 +8,7 @@ public class GruntScript : MonoBehaviour
     public GameObject John;
 
     private float LastShoot;
-    private int Health = 2;
+    private int Health = 3;
 
     private void Update()
     {
@@ -20,7 +20,7 @@ public class GruntScript : MonoBehaviour
 
         float distance = Mathf.Abs(John.transform.position.x - transform.position.x);
 
-        if (distance < 0.75f && Time.time > LastShoot + 0.75f)
+        if (distance < 1.0f && Time.time > LastShoot + 1.0f)
         {
             Shoot();
             LastShoot = Time.time;

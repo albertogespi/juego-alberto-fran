@@ -15,7 +15,7 @@ public class MovimientoJugador : MonoBehaviour
     private float Horizontal;    
     private float LastShoot;
     private bool Grounded;
-    private int Health = 10000;
+    private int Health = 10;
 
     void Start()
     {
